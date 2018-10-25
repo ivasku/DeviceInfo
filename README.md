@@ -16,7 +16,7 @@ Lightweigt to the device, simple and to the point.
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Adrian Ivasku
+Copyright (c) 2018 Adrian Ivasku
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
