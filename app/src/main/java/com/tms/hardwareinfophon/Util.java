@@ -30,11 +30,11 @@ public class Util {
     private Util() {
     }
 
-    public int getNumberOfCores() {
+    int getNumberOfCores() {
         return Runtime.getRuntime().availableProcessors();
     }
 
-    public String getTotalRam() {
+    String getTotalRam() {
         RandomAccessFile reader = null;
         String load = null;
         DecimalFormat twoDecimalForm = new DecimalFormat("#.##");
@@ -77,7 +77,7 @@ public class Util {
     }
 
 
-    public List<String> getScreenSize() {
+    List<String> getScreenSize() {
         DisplayMetrics dm = new DisplayMetrics();
         MainActivity._Instance.getWindowManager().getDefaultDisplay().getMetrics(dm);
 
@@ -103,7 +103,7 @@ public class Util {
         return displayInfo;
     }
 
-    public double getAvailableRam() {
+    double getAvailableRam() {
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         ActivityManager activityManager = (ActivityManager) MainActivity._Instance.getSystemService(ACTIVITY_SERVICE);
         activityManager.getMemoryInfo(mi);
@@ -111,7 +111,7 @@ public class Util {
         return (double) (mi.availMem / 0x100000L);
     }
 
-    public String getAvailableRamPercentage() {
+    String getAvailableRamPercentage() {
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         ActivityManager activityManager = (ActivityManager) MainActivity._Instance.getSystemService(ACTIVITY_SERVICE);
         activityManager.getMemoryInfo(mi);
@@ -119,7 +119,7 @@ public class Util {
         return String.format("%.2f", mi.availMem / (double) mi.totalMem * 100.0);
     }
 
-    public String getInternalStorage() {
+    String getInternalStorage() {
 
         File path = Environment.getDataDirectory();
         StatFs stat2 = new StatFs(path.getPath());
@@ -130,7 +130,7 @@ public class Util {
         return format;
     }
 
-    public String getFreeInternalStorage() {
+    String getFreeInternalStorage() {
         StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
         double sdAvailSize = (double) stat.getAvailableBlocks()
                 * (double) stat.getBlockSize();
@@ -140,7 +140,7 @@ public class Util {
         return percentAvail;
     }
 
-    public String getScreenSizeInches() {
+    String getScreenSizeInches() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         MainActivity._Instance.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
         double d1 = displayMetrics.widthPixels / displayMetrics.xdpi;
