@@ -73,19 +73,14 @@ public class Fragment_1 extends Fragment {
         drawableIds = new ArrayList<>();
 
 
-        list.add("CPU: " + DeviceName.getDeviceName());//Util.getInstance().getInfo());
+        list.add("CPU: " + DeviceName.getDeviceName());
         list.add("Number of cores: " + String.valueOf(Util.getInstance().getNumberOfCores()));
-        list.add("IMEI: " + " 45454545454" );//+ Util.getInstance().getBoardSerial());
-        try {
-            list.add("ddddd" );
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        list.add("IMEI: " + " Not implemented" );//+ Util.getInstance().getBoardSerial());
+
 
         drawableIds.add(R.drawable.cpu);
         drawableIds.add(R.drawable.ram);
         drawableIds.add(R.drawable.motherboard);
-        //drawableIds.add(R.drawable.ic_launcher);
 
 
         if (getArguments() != null) {
@@ -100,10 +95,8 @@ public class Fragment_1 extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_blank, container, false);
         lv = (ListView) v.findViewById(R.id.lista);
-       // ArrayAdapter adapter = new ArrayAdapter<String>(v.getContext(), android.R.layout.simple_list_item_1 , list);
 
         CustomAdapter adapter = new CustomAdapter(getActivity(),  list, drawableIds);
-
         lv.setAdapter(adapter);
 
         return v;

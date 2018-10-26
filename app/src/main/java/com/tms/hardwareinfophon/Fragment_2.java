@@ -103,9 +103,6 @@ public class Fragment_2 extends Fragment {
         View v = inflater.inflate(R.layout.fragment_fragment_2, container, false);
         lv = (ListView) v.findViewById(R.id.frag2lista);
         ArrayAdapter adapter = new ArrayAdapter<String>(v.getContext(), android.R.layout.simple_list_item_1 , list);
-
-        //CustomAdapter adapter = new CustomAdapter(getActivity(),  list, drawableIds);
-
         lv.setAdapter(adapter);
 
         return v;
