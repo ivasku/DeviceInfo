@@ -72,16 +72,13 @@ public class Fragment_1 extends Fragment {
         list = new ArrayList<>();
         drawableIds = new ArrayList<>();
 
-
         list.add("CPU: " + Util.getInstance().getCPUDetails());
         list.add("Number of cores: " + String.valueOf(Util.getInstance().getNumberOfCores()));
         list.add("IMEI: " + " Not implemented" );//+ Util.getInstance().getBoardSerial());
 
-
         drawableIds.add(R.drawable.cpu);
         drawableIds.add(R.drawable.ram);
         drawableIds.add(R.drawable.motherboard);
-
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -112,7 +109,6 @@ public class Fragment_1 extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
 
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
