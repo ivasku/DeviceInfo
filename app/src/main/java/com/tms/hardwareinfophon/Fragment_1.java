@@ -73,7 +73,7 @@ public class Fragment_1 extends Fragment {
         drawableIds = new ArrayList<>();
 
 
-        list.add("CPU: " + DeviceName.getDeviceName());
+        list.add("CPU: " + Util.getInstance().getCPUDetails());
         list.add("Number of cores: " + String.valueOf(Util.getInstance().getNumberOfCores()));
         list.add("IMEI: " + " Not implemented" );//+ Util.getInstance().getBoardSerial());
 

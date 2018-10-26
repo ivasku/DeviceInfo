@@ -2,14 +2,18 @@ package com.tms.hardwareinfophon;
 
 
 import android.app.ActivityManager;
+import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.RandomAccessFile;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -149,6 +153,13 @@ public class Util {
         String percentAvail = String.format("%.2f", deviceInches);
         return percentAvail;
     }
+
+     String getCPUDetails(){
+
+         return "TODO TODO";
+    }
+
+
 
 
 }
