@@ -24,6 +24,9 @@ import java.util.regex.Pattern;
 
 import static android.content.Context.ACTIVITY_SERVICE;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Util {
     private static final Util ourInstance = new Util();
 
@@ -156,8 +159,57 @@ public class Util {
 
      String getCPUDetails(){
 
-         return "TODO TODO";
+        // return "TODO TODO";
+         String Holder = "";
+         String[] DATA = {"/system/bin/cat", "/proc/cpuinfo"};
+         InputStream inputStream;
+         Process process ;
+         ProcessBuilder processBuilder;
+         String cpuData = "";
+
+         List <String> list =  new ArrayList<>();
+
+         byte[] byteArry = new byte[2048];
+         Pattern pattern = Pattern.compile("(?<=(Processor))(\\s)*:(\\s)*(.*)(\\n)");
+         Matcher matcher = null;
+
+         try{
+             processBuilder = new ProcessBuilder(DATA);
+
+             process = processBuilder.start();
+
+             inputStream = process.getInputStream();
+
+             while(inputStream.read(byteArry) != -1){
+
+                // matcher = pattern.matcher(new String(byteArry));
+                /* if (matcher.matches()){
+                     cpuData = matcher.group(0);
+                 }*/
+
+                 list.add(new String(byteArry));
+
+                // cpuData = pattern.matcher(new String(byteArry)).group(0);
+                 //Holder = Holder + new String(byteArry);
+             }
+
+             inputStream.close();
+
+             for (int i=0; i < list.size(); i ++) {
+                 matcher = pattern.matcher(list.get(i));
+                 Log.d("TMS" , "list: " + list.get(i));
+                 cpuData = matcher.group(0);
+             }
+
+         } catch(IOException ex){
+
+             ex.printStackTrace();
+         }
+
+       //  Log.d("TMS","cpuData: " + Holder);
+         return cpuData;
     }
+
 
 
 
