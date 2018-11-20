@@ -195,10 +195,18 @@ public class Util {
 
              inputStream.close();
 
+
+
+
              for (int i=0; i < list.size(); i ++) {
                  matcher = pattern.matcher(list.get(i));
-                 Log.d("TMS" , "list: " + list.get(i));
-                 cpuData = matcher.group(0);
+
+                 if(matcher.find()){
+                     Log.d("TMS" , "list: " + list.get(i));
+                     cpuData = matcher.group(0);
+                 }
+
+
              }
 
          } catch(IOException ex){
